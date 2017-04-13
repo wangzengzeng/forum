@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
@@ -39,17 +39,17 @@ if(!submitcheck('pluginsubmit')) {
 }
 
 function createPluginPackage($plugin) {
-	//½«ÎÄ¼þÐ´Èëdata/developÄ¿Â¼ÏÂ²¢´ò°ü³ÉZIP°ü
+	//将文件写入data/develop目录下并打包成ZIP包
 	$basedir = DISCUZ_ROOT.'data/develop/'.$plugin['identifier'];
 	if(!is_dir($basedir)) {
 		dmkdir($basedir);
 	}
-	//´´½¨Ä£°åÄ¿Â¼
+	//创建模板目录
 	$tpldri = $basedir.'/template';
 	dmkdir($tpldri);
 	$scripttype = array('magic', 'cron', 'adv', 'task', 'secqaa', 'seccode', 'navigation');
 	$basetype = array('general', 'special', 'mobile');
-	//´´½¨ÏàÓ¦µÄÎÄ¼þ
+	//创建相应的文件
 	$baseClass = $baseMethod = $expandMethod = $specialClass = array();
 	require_once DISCUZ_ROOT.'develop/include/hooklist.php';
 	require_once DISCUZ_ROOT.'develop/include/phptpl.php';
@@ -109,13 +109,13 @@ function createPluginPackage($plugin) {
 				}
 			}
 		} elseif($key == 'extra') {
-			//Ð´ÈëÑùÊ½±íÐÅÏ¢
+			//写入样式表信息
 			if($scripts['extrastyle']) {
 				$styleCode = "/** plugin::$plugin[identifier] **/\n".$scripts['extrastyle']."\n/** end **/\n";
 				$filePath = $tpldri.'/extend_module.css';
 				file_put_contents($filePath, $styleCode);
 			}
-			//Ð´Èë°²×°½Å±¾
+			//写入安装脚本
 			if($scripts['install']) {
 				$filePath = $basedir.'/install.php';
 				$code = str_replace('{modulename}', 'install', $phptpl['emptyfile']);
@@ -137,13 +137,13 @@ function createPluginPackage($plugin) {
 		}
 	}
 
-	//Ð´ÈëÇ¶Èëµã½Å±¾
+	//写入嵌入点脚本
 	foreach($baseClass as $name) {
 		$filePath = $basedir.'/'.$name.'.class.php';
 			
 		$code = str_replace('{modulename}', $name, $phptpl['baseclass']);
 		$code = str_replace('//==={code}===', implode('', $baseMethod[$name]), $code);
-		//Ìí¼ÓÀ©Õ¹Àà
+		//添加扩展类
 		foreach($expandMethod[$name] as $extend => $methods) {
 			$extcode = str_replace('{modulename}', $name, $phptpl['extendclass']);
 			$extcode = str_replace('{curscript}', $extend, $extcode);
@@ -156,11 +156,11 @@ function createPluginPackage($plugin) {
 		$code = str_replace('//==={code}===', $code, $phptpl['emptyfile']);
 		file_put_contents($filePath, $code);
 	}
-	//Éú³ÉXMLÎÄµµ
+	//生成XML文档
 	$pluginarray = array();
 	$pluginarray['plugin'] = $plugin;
 	unset($pluginarray['plugin']['pluginid']);
-	//Ìß³ýÉ¨ÃèÄ¿Â¼µÄÎÄ¼þ
+	//踢除扫描目录的文件
 	foreach($pluginarray['plugin']['modules'] as $key => $scripts) {
 		if(in_array($key, $scripttype)) {
 			if($key == 'navigation') {
@@ -221,7 +221,7 @@ function createPluginPackage($plugin) {
 	$plugin_export = array2xml($root, 1);
 	$filePath = $basedir.'/'.$filename;
 	file_put_contents($filePath, array2xml($root, 1));
-	//´ò³Ézip°üÏÂÔØ
+	//打成zip包下载
 	require_once DISCUZ_ROOT.'develop/include/pclzip.lib.php';
 	$zipFileName = DISCUZ_ROOT.'data/develop/'.$plugin['identifier'].'.zip';
 	$zip = new PclZip($zipFileName);

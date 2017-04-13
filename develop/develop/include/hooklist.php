@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
@@ -12,7 +12,7 @@ if(!defined('IN_DISCUZ')) {
 
 $generalhook = Array(
 	'common' => Array(
-		'lang' => 'È«¾Ö(common)',
+		'lang' => '全局(common)',
 		'extcredits.htm' => Array(
 				'spacecp_credit_extra' => Array('return' => 'string')
 			),
@@ -42,7 +42,7 @@ $generalhook = Array(
 			)
 	),
 	'forum' => Array(
-		'lang' => 'ÂÛÌ³(forum)',
+		'lang' => '论坛(forum)',
 		'collection_all.htm' => Array(
 				'collection_index_top' => Array('return' => 'string','version' => 'X2.5'),
 				'collection_index_bottom' => Array('return' => 'string','version' => 'X2.5')
@@ -245,7 +245,7 @@ $generalhook = Array(
 			)
 	),
 	'group' => Array(
-		'lang' => 'Èº×é(group)',
+		'lang' => '群组(group)',
 		'group.htm' => Array(
 				'group_navlink' => Array('return' => 'string'),
 				'forumdisplay_navlink' => Array('return' => 'string'),
@@ -291,7 +291,7 @@ $generalhook = Array(
 			)
 	),
 	'home' => Array(
-		'lang' => '¼ÒÔ°(home)',
+		'lang' => '家园(home)',
 		'follow_feed.htm' => Array(
 				'follow_nav_extra' => Array('return' => 'string','version' => 'X2.5'),
 				'follow_top' => Array('return' => 'string','version' => 'X2.5')
@@ -414,7 +414,7 @@ $generalhook = Array(
 			)
 	),
 	'member' => Array(
-		'lang' => '×¢²á/µÇÂ¼(member)',
+		'lang' => '注册/登录(member)',
 		'login.htm' => Array(
 				'logging_side_top' => Array('return' => 'string'),
 				'logging_top' => Array('return' => 'string'),
@@ -433,7 +433,7 @@ $generalhook = Array(
 			)
 	),
 	'portal' => Array(
-		'lang' => 'ÃÅ»§(portal)',
+		'lang' => '门户(portal)',
 		'portalcp_article.htm' => Array(
 				'portalcp_top' => Array('return' => 'string'),
 				'portalcp_extend' => Array('return' => 'string'),
@@ -452,13 +452,13 @@ $generalhook = Array(
 			)
 	),
 	'ranklist' => Array(
-		'lang' => 'ÅÅÐÐ°ñ(ranklist)',
+		'lang' => '排行榜(ranklist)',
 		'side_left.htm' => Array(
 				'ranklist_nav_extra' => Array('return' => 'string')
 			)
 	),
 	'search' => Array(
-		'lang' => 'ËÑË÷(search)',
+		'lang' => '搜索(search)',
 		'album.htm' => Array(
 				'album_top' => Array('return' => 'string'),
 				'album_bottom' => Array('return' => 'string')
@@ -489,7 +489,7 @@ $generalhook = Array(
 			)
 	),
 	'userapp' => Array(
-		'lang' => 'Ó¦ÓÃ(userapp)',
+		'lang' => '应用(userapp)',
 		'userapp_app.htm' => Array(
 				'userapp_app_top' => Array('return' => 'string'),
 				'userapp_app_bottom' => Array('return' => 'string')
@@ -507,7 +507,7 @@ $generalhook = Array(
 );
 $mobilehook = array(
 	'common' => Array(
-		'lang' => 'ÊÖ»úÈ«¾Ö(mobile/common)',
+		'lang' => '手机全局(mobile/common)',
 		'footer.htm' => Array(
 				'global_footer_mobile' => Array('return' => 'string')
 			),
@@ -516,7 +516,7 @@ $mobilehook = array(
 			)
 	),
 	'forum' => Array(
-		'lang' => 'ÊÖ»úÂÛÌ³(mobile/forum)',
+		'lang' => '手机论坛(mobile/forum)',
 		'discuz.htm' => Array(
 				'index_top_mobile' => Array('return' => 'string'),
 				'index_middle_mobile' => Array('return' => 'string'),

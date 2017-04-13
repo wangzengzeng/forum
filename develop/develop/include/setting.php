@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
@@ -15,11 +15,11 @@ $editvar = false;
 
 $variables = array();
 $pluginvarid = intval($_GET['pluginvarid']);
-//È¡³öËùÓÐÌí¼ÓµÄ±äÁ¿Öµ
+//取出所有添加的变量值
 if($pluginvarid && $plugin['pluginid']) {
 	$pluginvar = C::t('common_plugin')->fetch_by_pluginvarid($plugin['pluginid'], $pluginvarid);
 	if(!$pluginvar) {
-		devmessage('²å¼þ±äÁ¿Î´ÕÒµ½');
+		devmessage('插件变量未找到');
 	}
 	$editvar = true;
 } else if($plugin['pluginid']) {
@@ -35,7 +35,7 @@ if(!submitcheck('pluginsubmit')) {
 } else {
 	
 	
-	//±à¼­±äÁ¿ÉèÖÃ
+	//编辑变量设置
 	if($editvar) {
 		$titlenew	= cutstr(trim($_GET['titlenew']), 25);
 		$descriptionnew	= cutstr(trim($_GET['descriptionnew']), 255);
@@ -43,7 +43,7 @@ if(!submitcheck('pluginsubmit')) {
 		$extranew	= trim($_GET['extranew']);
 		
 		if(!$titlenew) {
-			devmessage('ÄúÃ»ÓÐÊäÈëÅäÖÃÃû³Æ');
+			devmessage('您没有输入配置名称');
 		} elseif($variablenew != $pluginvar['variable']) {
 			require_once libfile('function/admincp');
 			if(!$variablenew || strlen($variablenew) > 40 || !ispluginkey($variablenew) || C::t('common_pluginvar')->check_variable($plugin['pluginid'], $variablenew)) {

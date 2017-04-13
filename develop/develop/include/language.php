@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
@@ -25,7 +25,7 @@ if(!submitcheck('pluginsubmit')) {
 	if(empty($installlang[$plugin['identifier']])) {
 		$installlang[$plugin['identifier']] = array('' => '');
 	}
-	$tpllang = '{lang Î¨Ò»±êÊ¶·û:ÓïÑÔ°ü±äÁ¿Ãû³Æ}';
+	$tpllang = '{lang 唯一标识符:语言包变量名称}';
 } else {
 	foreach($_GET['scriptlangnew_key'] as $key => $val) {
 		if($_GET['scriptlangnew_val'][$key]) {
@@ -56,10 +56,10 @@ if(!submitcheck('pluginsubmit')) {
 		exit('Can not write to cache files, please check directory ./data/ and ./data/sysdata/ .');
 	}
 	if($action == 'edit') {
-		devmessage('Ìá½»³É¹¦', "develop.php?mod=plugin&action=$action&operation=language&pluginid=$pluginid", 'succeed');
+		devmessage('提交成功', "develop.php?mod=plugin&action=$action&operation=language&pluginid=$pluginid", 'succeed');
 	} else {
 		dheader("location:develop.php?mod=plugins&action=$action&operation=style&pluginid=$pluginid");
-		//devmessage('Ìá½»³É¹¦', "develop.php?mod=plugin&action=$action&operation=style&pluginid=$pluginid", 'succeed');
+		//devmessage('提交成功', "develop.php?mod=plugin&action=$action&operation=style&pluginid=$pluginid", 'succeed');
 	}
 }
 include template('header', 0, 'develop/template/common');

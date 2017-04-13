@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
@@ -47,14 +47,14 @@ $phptpl['specialclass'] = <<<EOF
 
 class threadplugin_$plugin[identifier] {
 
-	public \$name = 'XXÖ÷Ìâ';			//Ö÷ÌâÀàÐÍÃû³Æ
-	public \$iconfile = 'icon.gif';	//·¢²¼Ö÷ÌâÁ´½ÓÖÐµÄÇ°×ºÍ¼±ê
-	public \$buttontext = '·¢²¼xxÖ÷Ìâ';	//·¢ÌûÊ±°´Å¥ÎÄ×Ö
+	public \$name = 'XX主题';			//主题类型名称
+	public \$iconfile = 'icon.gif';	//发布主题链接中的前缀图标
+	public \$buttontext = '发布xx主题';	//发帖时按钮文字
 
 	/**
-	 * ·¢Ö÷ÌâÊ±Ò³ÃæÐÂÔöµÄ±íµ¥ÏîÄ¿
-	 * @param Integer \$fid: °æ¿éID
-	 * @return string Í¨¹ý return ·µ»Ø¼´¿ÉÊä³öµ½·¢ÌûÒ³ÃæÖÐ 
+	 * 发主题时页面新增的表单项目
+	 * @param Integer \$fid: 版块ID
+	 * @return string 通过 return 返回即可输出到发帖页面中 
 	 */
 	public function newthread(\$fid) {
 		//TODO - Insert your code here
@@ -63,8 +63,8 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * Ö÷Ìâ·¢²¼Ç°µÄÊý¾ÝÅÐ¶Ï 
-	 * @param Integer \$fid: °æ¿éID
+	 * 主题发布前的数据判断 
+	 * @param Integer \$fid: 版块ID
 	 */
 	public function newthread_submit(\$fid) {
 		//TODO - Insert your code here
@@ -72,9 +72,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * Ö÷Ìâ·¢²¼ºóµÄÊý¾Ý´¦Àí 
-	 * @param Integer \$fid: °æ¿éID
-	 * @param Integer \$tid: µ±Ç°Ìû×ÓID
+	 * 主题发布后的数据处理 
+	 * @param Integer \$fid: 版块ID
+	 * @param Integer \$tid: 当前帖子ID
 	 */
 	public function newthread_submit_end(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -82,10 +82,10 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * ±à¼­Ö÷ÌâÊ±Ò³ÃæÐÂÔöµÄ±íµ¥ÏîÄ¿
-	 * @param Integer \$fid: °æ¿éID
-	 * @param Integer \$tid: µ±Ç°Ìû×ÓID
-	 * @return string Í¨¹ý return ·µ»Ø¼´¿ÉÊä³öµ½±à¼­Ö÷ÌâÒ³ÃæÖÐ 
+	 * 编辑主题时页面新增的表单项目
+	 * @param Integer \$fid: 版块ID
+	 * @param Integer \$tid: 当前帖子ID
+	 * @return string 通过 return 返回即可输出到编辑主题页面中 
 	 */
 	public function editpost(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -94,9 +94,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * Ö÷Ìâ±à¼­Ç°µÄÊý¾ÝÅÐ¶Ï 
-	 * @param Integer \$fid: °æ¿éID
-	 * @param Integer \$tid: µ±Ç°Ìû×ÓID
+	 * 主题编辑前的数据判断 
+	 * @param Integer \$fid: 版块ID
+	 * @param Integer \$tid: 当前帖子ID
 	 */
 	public function editpost_submit(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -104,9 +104,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * Ö÷Ìâ±à¼­ºóµÄÊý¾Ý´¦Àí 
-	 * @param Integer \$fid: °æ¿éID
-	 * @param Integer \$tid: µ±Ç°Ìû×ÓID
+	 * 主题编辑后的数据处理 
+	 * @param Integer \$fid: 版块ID
+	 * @param Integer \$tid: 当前帖子ID
 	 */
 	public function editpost_submit_end(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -114,9 +114,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * »ØÌûºóµÄÊý¾Ý´¦Àí 
-	 * @param Integer \$fid: °æ¿éID
-	 * @param Integer \$tid: µ±Ç°Ìû×ÓID
+	 * 回帖后的数据处理 
+	 * @param Integer \$fid: 版块ID
+	 * @param Integer \$tid: 当前帖子ID
 	 */
 	public function newreply_submit_end(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -124,9 +124,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * ²é¿´Ö÷ÌâÊ±Ò³ÃæÐÂÔöµÄÄÚÈÝ
-	 * @param Integer \$tid: µ±Ç°Ìû×ÓID
-	 * @return string Í¨¹ý return ·µ»Ø¼´¿ÉÊä³öµ½Ö÷ÌâÊ×ÌùÒ³ÃæÖÐ
+	 * 查看主题时页面新增的内容
+	 * @param Integer \$tid: 当前帖子ID
+	 * @return string 通过 return 返回即可输出到主题首贴页面中
 	 */
 	public function viewthread(\$tid) {
 		//TODO - Insert your code here
@@ -152,40 +152,40 @@ EOF;
 
 $phptpl['magic'] = <<<EOF
 class magic_{name} {
-	public \$version = '$plugin[version]';	//½Å±¾°æ±¾ºÅ
-	public \$name = '{name}';				//µÀ¾ßÃû³Æ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$description = '{desc}';		//µÀ¾ßËµÃ÷ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$price = '20';	//µÀ¾ßÄ¬ÈÏ¼Û¸ñ
-	public \$weight = '20';	//µÀ¾ßÄ¬ÈÏÖØÁ¿
+	public \$version = '$plugin[version]';	//脚本版本号
+	public \$name = '{name}';				//道具名称 (可填写语言包项目)
+	public \$description = '{desc}';		//道具说明 (可填写语言包项目)
+	public \$price = '20';	//道具默认价格
+	public \$weight = '20';	//道具默认重量
 	public \$useevent = 0;
 	public \$targetgroupperm = false;
-	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//°æÈ¨ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
+	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//版权 (可填写语言包项目)
 	public \$magic = array();
 	public \$parameters = array();
 
 	/**
-	 * ·µ»ØÉèÖÃÏîÄ¿
+	 * 返回设置项目
 	 */
 	public function getsetting(&\$magic) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * ±£´æÉèÖÃÏîÄ¿
+	 * 保存设置项目
 	 */
 	public function setsetting(&\$magicnew, &\$parameters) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * µÀ¾ßÊ¹ÓÃ
+	 * 道具使用
 	 */
 	public function usesubmit() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * µÀ¾ßÏÔÊ¾
+	 * 道具显示
 	 */
 	public function show() {
 		//TODO - Insert your code here
@@ -219,29 +219,29 @@ EOF;
 $phptpl['adv'] = <<<EOF
 class adv_{name} {
 
-	public \$version = '$plugin[version]';	//½Å±¾°æ±¾ºÅ
-	public \$name = '{name}';				//¹ã¸æÀàÐÍÃû³Æ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$description = '{desc}';		//¹ã¸æÀàÐÍËµÃ÷ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//°æÈ¨ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$targets = array('portal', 'home', 'member', 'forum', 'group', 'userapp', 'plugin', 'custom');	//¹ã¸æÀàÐÍÊÊÓÃµÄÍ¶·Å·¶Î§
-	public \$imagesizes = array();	//¹ã¸æ¹æ¸ñÀý£ºarray('468x60', '658x60', '728x90', '760x90', '950x90')
+	public \$version = '$plugin[version]';	//脚本版本号
+	public \$name = '{name}';				//广告类型名称 (可填写语言包项目)
+	public \$description = '{desc}';		//广告类型说明 (可填写语言包项目)
+	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//版权 (可填写语言包项目)
+	public \$targets = array('portal', 'home', 'member', 'forum', 'group', 'userapp', 'plugin', 'custom');	//广告类型适用的投放范围
+	public \$imagesizes = array();	//广告规格例：array('468x60', '658x60', '728x90', '760x90', '950x90')
 
 	/**
-	 * ·µ»ØÉèÖÃÏîÄ¿
+	 * 返回设置项目
 	 */
 	public function getsetting() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * ±£´æÉèÖÃÏîÄ¿
+	 * 保存设置项目
 	 */
 	public function setsetting(&\$advnew, &\$parameters) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * ¹ã¸æÏÔÊ¾Ê±µÄÔËÐÐ´úÂë
+	 * 广告显示时的运行代码
 	 */
 	public function evalcode() {
 		//TODO - Insert your code here
@@ -252,59 +252,59 @@ EOF;
 $phptpl['task'] = <<<EOF
 class task_{name} {
 
-	public \$version = '$plugin[version]';	//½Å±¾°æ±¾ºÅ
-	public \$name = '{name}';	//ÈÎÎñÃû³Æ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$description = '{desc}';	//ÈÎÎñËµÃ÷ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//°æÈ¨ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$icon = '';		//Ä¬ÈÏÍ¼±ê
-	public \$period = '';	//Ä¬ÈÏÈÎÎñ¼ä¸ôÖÜÆÚ
-	public \$periodtype = 0;//Ä¬ÈÏÈÎÎñ¼ä¸ôÖÜÆÚµ¥Î»
-	public \$conditions = array();	//ÈÎÎñ¸½¼ÓÌõ¼þ
+	public \$version = '$plugin[version]';	//脚本版本号
+	public \$name = '{name}';	//任务名称 (可填写语言包项目)
+	public \$description = '{desc}';	//任务说明 (可填写语言包项目)
+	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//版权 (可填写语言包项目)
+	public \$icon = '';		//默认图标
+	public \$period = '';	//默认任务间隔周期
+	public \$periodtype = 0;//默认任务间隔周期单位
+	public \$conditions = array();	//任务附加条件
 
 	/**
-	 * ÉêÇëÈÎÎñ³É¹¦ºóµÄ¸½¼Ó´¦Àí
+	 * 申请任务成功后的附加处理
 	 */
 	public function  preprocess(\$task) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * ÅÐ¶ÏÈÎÎñÊÇ·ñÍê³É (·µ»Ø TRUE:³É¹¦ FALSE:Ê§°Ü 0:ÈÎÎñ½øÐÐÖÐ½ø¶ÈÎ´Öª»òÉÐÎ´¿ªÊ¼  ´óÓÚ0µÄÕýÊý:ÈÎÎñ½øÐÐÖÐ·µ»ØÈÎÎñ½ø¶È)
+	 * 判断任务是否完成 (返回 TRUE:成功 FALSE:失败 0:任务进行中进度未知或尚未开始  大于0的正数:任务进行中返回任务进度)
 	 */
 	public function csc(\$task = array()) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * Íê³ÉÈÎÎñºóµÄ¸½¼Ó´¦Àí
+	 * 完成任务后的附加处理
 	 */
 	public function sufprocess(\$task) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * ÈÎÎñÏÔÊ¾
+	 * 任务显示
 	 */
 	public function view() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * ÈÎÎñ°²×°µÄ¸½¼Ó´¦Àí
+	 * 任务安装的附加处理
 	 */
 	public function install() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * ÈÎÎñÐ¶ÔØµÄ¸½¼Ó´¦Àí
+	 * 任务卸载的附加处理
 	 */
 	public function uninstall() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * ÈÎÎñÉý¼¶µÄ¸½¼Ó´¦Àí
+	 * 任务升级的附加处理
 	 */
 	public function upgrade() {
 		//TODO - Insert your code here
@@ -314,14 +314,14 @@ EOF;
 $phptpl['secqaa'] = <<<EOF
 class secqaa_{name} {
 
-	public \$version = '$plugin[version]';	//½Å±¾°æ±¾ºÅ
-	public \$name = '{name}';	//ÑéÖ¤ÎÊ´ðÃû³Æ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$description = '{desc}';	//ÑéÖ¤ÎÊ´ðËµÃ÷ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
-	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//°æÈ¨ (¿ÉÌîÐ´ÓïÑÔ°üÏîÄ¿)
+	public \$version = '$plugin[version]';	//脚本版本号
+	public \$name = '{name}';	//验证问答名称 (可填写语言包项目)
+	public \$description = '{desc}';	//验证问答说明 (可填写语言包项目)
+	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//版权 (可填写语言包项目)
 	public \$customname = '';
 
 	/**
-	 * ·µ»Ø°²È«ÎÊ´ðµÄ´ð°¸ºÍÎÊÌâ (\$question ÎªÎÊÌâ£¬º¯Êý·µ»ØÖµÎª´ð°¸)
+	 * 返回安全问答的答案和问题 (\$question 为问题，函数返回值为答案)
 	 */
 	public function make(&\$question) {
 		//TODO - Insert your code here
@@ -338,14 +338,14 @@ class seccode_{name} {
 	public \$customname = '';
 
 	/**
-	 * ¼ì²éÊäÈëµÄÑéÖ¤Âë£¬·µ»Ø true ±íÊ¾Í¨¹ý
+	 * 检查输入的验证码，返回 true 表示通过
 	 */
 	public function check(\$value, \$idhash) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * Êä³öÑéÖ¤Âë£¬echo Êä³öÄÚÈÝ½«ÏÔÊ¾ÔÚÒ³ÃæÖÐ
+	 * 输出验证码，echo 输出内容将显示在页面中
 	 */
 	public function make() {
 		//TODO - Insert your code here

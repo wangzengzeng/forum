@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
@@ -25,7 +25,7 @@ if(in_array($action, array('create', 'edit'))) {
 		exit($result);
 	}
 	$cur_operation[$operation] = 'class="a"';
-	//»ñÈ¡Ö¸¶¨µÄ²å¼þ¼ÇÂ¼
+	//获取指定的插件记录
 	$plugin = array();
 	$pluginid = intval($_GET['pluginid']);
 	if($pluginid) {
@@ -34,15 +34,15 @@ if(in_array($action, array('create', 'edit'))) {
 			$plugin['modules'] = unserialize($plugin['modules']);
 		} else {
 			$pluginid = 0;
-			//ÕÒ²»µ½²å¼þÖØ¶¨Ïòµ½´´½¨²å¼þ
+			//找不到插件重定向到创建插件
 			$operation = 'regplugin';
 			$action = 'create';
 		}
 	}
 	if($operation != 'regplugin' && empty($plugin)) {
-		devmessage('Ã»ÓÐÕÒµ½Ïà¹Ø²å¼þ', '', 'error');
+		devmessage('没有找到相关插件', '', 'error');
 	}
-	//¼ÓÔØ¸÷²½Öè¶ÔÓ¦µÄ½Å±¾
+	//加载各步骤对应的脚本
 	require_once DISCUZ_ROOT.'develop/include/'.$operation.'.php';
 	
 	include template('header', 0, 'develop/template/common');
@@ -56,7 +56,7 @@ if(in_array($action, array('create', 'edit'))) {
 		$page = dhtmlspecialchars(preg_replace("/[^\[A-Za-z0-9_\.\]]/", '', $_GET['page']));
 		require_once DISCUZ_ROOT.'develop/include/hooklist.php';
 		$hooklist = $_GET['type'] == 'mobile' ? $mobilehook : $generalhook;
-		//Ò³ÃæÁÐ±í
+		//页面列表
 		$hooks = $pagelist = array();
 		if(isset($hooklist[$sort]) && !empty($hooklist[$sort])) {
 			foreach($hooklist[$sort] as $key => $value) {

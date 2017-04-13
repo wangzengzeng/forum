@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
@@ -54,7 +54,7 @@ if(!submitcheck('pluginsubmit')) {
 			'copyright' => $copyrightnew,
 			'modules' => serialize($plugin['modules'])
 		));
-		devmessage('Ìá½»³É¹¦', 'develop.php?mod=plugin&action=edit&operation=regplugin&pluginid='.$pluginid, 'succeed');
+		devmessage('提交成功', 'develop.php?mod=plugin&action=edit&operation=regplugin&pluginid='.$pluginid, 'succeed');
 	} elseif($action == 'create') {
 		$data = array(
 			'name' => $namenew,

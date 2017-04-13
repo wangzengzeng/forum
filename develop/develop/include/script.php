@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
@@ -35,12 +35,12 @@ if(!submitcheck('pluginsubmit')) {
 			$module = $plugin['modules'][$type][$filename];
 			if($type == 'cron') {
 				$days = array(-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31);
-				$week = array('0'=>'ÐÇÆÚÈÕ', '1'=>'ÐÇÆÚÒ»', '2'=>'ÐÇÆÚ¶þ', '3'=>'ÐÇÆÚÈý', '4'=>'ÐÇÆÚËÄ', '5'=>'ÐÇÆÚÎå', '6'=>'ÐÇÆÚÁù');
+				$week = array('0'=>'星期日', '1'=>'星期一', '2'=>'星期二', '3'=>'星期三', '4'=>'星期四', '5'=>'星期五', '6'=>'星期六');
 				$module['weekday'] = isset($module['weekday']) ? $module['weekday'] : '-1';
 				$module['day'] = isset($module['day']) ? $module['day'] : '-1';
 				$module['hour'] = isset($module['hour']) ? $module['hour'] : '-1';
 			} elseif($type == 'navigation') {
-				$allowgroup = array('0' => 'ÆÕÍ¨ÓÃ»§', '1' => '¹ÜÀíÔ±', '2' => '³¬¼¶°æÖ÷', '3' => '°æÖ÷');
+				$allowgroup = array('0' => '普通用户', '1' => '管理员', '2' => '超级版主', '3' => '版主');
 			}
 		}
 	} elseif($type == 'system' && in_array($filename, array('install', 'uninstall', 'upgrade'))) {
@@ -81,7 +81,7 @@ if(!submitcheck('pluginsubmit')) {
 		$page = dhtmlspecialchars(preg_replace("/[^\[A-Za-z0-9_\.\]]/", '', $_GET['page']));
 		$hooklist = $type == 'mobile' ? $mobilehook : $generalhook;
 		if(in_array($type, $basetype)) {
-			//³õÊ¼»¯¹³×Ó
+			//初始化钩子
 			$plugin['modules'][$type]['hooks'] = array();
 			foreach($_GET['hooks'] as $skey => $value) {
 				$sorts = $hooklist[$skey];
@@ -93,7 +93,7 @@ if(!submitcheck('pluginsubmit')) {
 								if(stripos($hook, '_output') && substr($hook, stripos($hook, '_output')) == '_output') {
 									$key = substr($key, 0, stripos($hook, '_output'));
 								}
-								//ÅÐ¶ÏÊÇ·ñÓÐÑ¡ÔñÖ÷·½·¨£¬Èç¹ûÃ»ÓÐÅ×ÆúoutputµÄ¹³×Ó
+								//判断是否有选择主方法，如果没有抛弃output的钩子
 								if(isset($sorts[$fkey][$key]) && isset($_GET['hooks'][$skey][$fkey][$key])) {
 									$plugin['modules'][$type]['hooks'][$skey][$fkey][$hook] = $hook;
 								}
@@ -102,7 +102,7 @@ if(!submitcheck('pluginsubmit')) {
 					}
 				}
 			}
-			//Ìí¼Ó¹³×Ó
+			//添加钩子
 			if(isset($hooklist[$sort])) {
 				$sorts = $hooklist[$sort];
 				if($sorts && $sorts[$page]) {
@@ -111,20 +111,20 @@ if(!submitcheck('pluginsubmit')) {
 						if(stripos($hook, '_output') && substr($hook, stripos($hook, '_output')) == '_output') {
 							$key = substr($key, 0, stripos($hook, '_output'));
 						}
-						//ÅÐ¶ÏÊÇ·ñÓÐÑ¡ÔñÖ÷·½·¨£¬Èç¹ûÃ»ÓÐÅ×ÆúoutputµÄ¹³×Ó
+						//判断是否有选择主方法，如果没有抛弃output的钩子
 						if(isset($sorts[$page][$key]) && isset($_GET['newhook'][$key])) {
 							$plugin['modules'][$type]['hooks'][$sort][$page][$hook] = $hook;
 						}
 					}
 				}
 			}
-			//Ð´Èë²å¼þÐÅÏ¢
+			//写入插件信息
 			C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
 			
 		}
-		devmessage('Ç¶ÈëµãÌí¼Ó³É¹¦£¬¼ÌÐøÏÂÒ»²½¡£', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid&filename=$filename&type=$type", 'succeed');
+		devmessage('嵌入点添加成功，继续下一步。', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid&filename=$filename&type=$type", 'succeed');
 	} elseif(submitcheck('editcron')) {
-		//¹ýÂË·ÖÖÓÊý¾Ý
+		//过滤分钟数据
 		$minutes = explode(',', $_GET['newminute']);
 		foreach($minutes as $minute) {
 			$minute = intval($minute);
@@ -138,14 +138,14 @@ if(!submitcheck('pluginsubmit')) {
 		$plugin['modules'][$type][$filename]['hour'] = $_GET['newhour'] < -1 || 23 < $_GET['newhour'] ? -1 : intval($_GET['newhour']);
 		$plugin['modules'][$type][$filename]['minute'] = $newminute ? implode(',', $newminute) : '';
 		$plugin['modules'][$type][$filename]['description'] = $_GET['description'];
-		//Ð´Èë²å¼þÐÅÏ¢
+		//写入插件信息
 		C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
-		devmessage('¼Æ»®ÈÎÎñÉèÖÃÍê³É', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
+		devmessage('计划任务设置完成', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
 	} elseif(submitcheck('editadv')) {
 		$plugin['modules'][$type][$filename]['description'] = $_GET['description'];
-		//Ð´Èë²å¼þÐÅÏ¢
+		//写入插件信息
 		C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
-		devmessage('½Å±¾±à¼­Íê³É', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
+		devmessage('脚本编辑完成', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
 	} elseif(submitcheck('editnav')) {
 		
 		if(!ispluginkey($_GET['name'])) {
@@ -167,13 +167,13 @@ if(!submitcheck('pluginsubmit')) {
 				'navsuburl' => $_GET['navsuburl'],
 				'description' => trim($_GET['menu'])
 			);
-		//Ð´Èë²å¼þÐÅÏ¢
+		//写入插件信息
 		C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
-		devmessage('½Å±¾±à¼­Íê³É', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
+		devmessage('脚本编辑完成', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
 	} elseif(submitcheck('editsystem')) {
 		if(in_array($filename, array('install', 'uninstall', 'upgrade'))) {
 			$plugin['modules']['extra'][$filename] = $_GET[$filename];
-			//Ìí¼Ó±íÊ±Í¬Ê±Ôö¼ÓÉ¾³ý±íSQL
+			//添加表时同时增加删除表SQL
 			if($filename == 'install' && empty($plugin['modules']['extra']['uninstall'])) {
 				preg_match_all("/CREATE\s+TABLE.+?pre\_(.+?)\s*\((.+?)\)\s*(ENGINE|TYPE)\s*\=/is", $_GET[$filename], $matches);
 				if($matches[1]) {
@@ -184,14 +184,14 @@ if(!submitcheck('pluginsubmit')) {
 					$plugin['modules']['extra']['uninstall'] = $uninstall;
 				}
 			}
-			//Ð´Èë²å¼þÐÅÏ¢
+			//写入插件信息
 			C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
 		}
-		devmessage('½Å±¾±à¼­Íê³É', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
+		devmessage('脚本编辑完成', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
 	} else {
 		
 		$modules = array();
-		//ÕûÀíÐÂµÄ½Å±¾Ãû³Æ
+		//整理新的脚本名称
 		foreach($_POST['script'] as $key => $scripts) {
 			if($key === 'extra' || $key === 'system') {
 				continue;
@@ -229,7 +229,7 @@ if(!submitcheck('pluginsubmit')) {
 							devmessage($devlang['plugins_script_'.$key].$devlang['plugins_script_repeat'], '', 'error');
 						}
 						$init = isset($plugin['modules'][$key][$scriptname]) ? false : true;
-						//¸üÃû
+						//更名
 						if($scrkey != $scriptname && !is_numeric($scrkey)) {
 							$plugin['modules'][$key][$scriptname] = $plugin['modules'][$key][$scrkey];
 							unset($plugin['modules'][$key][$scrkey]);
@@ -254,10 +254,10 @@ if(!submitcheck('pluginsubmit')) {
 		}
 		C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
 		if($action == 'edit') {
-			devmessage('½Å±¾Ìí¼Ó³É¹¦', "develop.php?mod=plugins&action=$action&operation=script&pluginid=$pluginid", 'succeed');
+			devmessage('脚本添加成功', "develop.php?mod=plugins&action=$action&operation=script&pluginid=$pluginid", 'succeed');
 		} else {
 			dheader("location:develop.php?mod=plugins&action=$action&operation=setting&pluginid=$pluginid");
-			//devmessage('½Å±¾Ìí¼Ó³É¹¦', "develop.php?mod=plugins&action=$action&operation=setting&pluginid=$pluginid", 'succeed');
+			//devmessage('脚本添加成功', "develop.php?mod=plugins&action=$action&operation=setting&pluginid=$pluginid", 'succeed');
 		}
 	}
 }
