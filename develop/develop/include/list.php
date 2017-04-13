@@ -10,7 +10,7 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 define('ADMINSCRIPT', 'admin.php');
-	//取本地开发的插件列表 $develop_list
+	//脠隆卤戮碌脴驴陋路垄碌脛虏氓录镁脕脨卤铆 $develop_list
 	$develop_data = DISCUZ_ROOT.'/data/develop_data.php';
 	if(file_exists($develop_data)) {
 		require_once $develop_data;

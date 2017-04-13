@@ -12,7 +12,7 @@ if(!defined('IN_DISCUZ')) {
 
 $generalhook = Array(
 	'common' => Array(
-		'lang' => 'ȫ��(common)',
+		'lang' => 'È«¾Ö(common)',
 		'extcredits.htm' => Array(
 				'spacecp_credit_extra' => Array('return' => 'string')
 			),
@@ -42,7 +42,7 @@ $generalhook = Array(
 			)
 	),
 	'forum' => Array(
-		'lang' => '��̳(forum)',
+		'lang' => 'ÂÛÌ³(forum)',
 		'collection_all.htm' => Array(
 				'collection_index_top' => Array('return' => 'string','version' => 'X2.5'),
 				'collection_index_bottom' => Array('return' => 'string','version' => 'X2.5')
@@ -245,7 +245,7 @@ $generalhook = Array(
 			)
 	),
 	'group' => Array(
-		'lang' => 'Ⱥ��(group)',
+		'lang' => 'Èº×é(group)',
 		'group.htm' => Array(
 				'group_navlink' => Array('return' => 'string'),
 				'forumdisplay_navlink' => Array('return' => 'string'),
@@ -291,7 +291,7 @@ $generalhook = Array(
 			)
 	),
 	'home' => Array(
-		'lang' => '��԰(home)',
+		'lang' => '¼ÒÔ°(home)',
 		'follow_feed.htm' => Array(
 				'follow_nav_extra' => Array('return' => 'string','version' => 'X2.5'),
 				'follow_top' => Array('return' => 'string','version' => 'X2.5')
@@ -414,7 +414,7 @@ $generalhook = Array(
 			)
 	),
 	'member' => Array(
-		'lang' => 'ע��/��¼(member)',
+		'lang' => '×¢²á/µÇÂ¼(member)',
 		'login.htm' => Array(
 				'logging_side_top' => Array('return' => 'string'),
 				'logging_top' => Array('return' => 'string'),
@@ -433,7 +433,7 @@ $generalhook = Array(
 			)
 	),
 	'portal' => Array(
-		'lang' => '�Ż�(portal)',
+		'lang' => 'ÃÅ»§(portal)',
 		'portalcp_article.htm' => Array(
 				'portalcp_top' => Array('return' => 'string'),
 				'portalcp_extend' => Array('return' => 'string'),
@@ -452,13 +452,13 @@ $generalhook = Array(
 			)
 	),
 	'ranklist' => Array(
-		'lang' => '���а�(ranklist)',
+		'lang' => 'ÅÅÐÐ°ñ(ranklist)',
 		'side_left.htm' => Array(
 				'ranklist_nav_extra' => Array('return' => 'string')
 			)
 	),
 	'search' => Array(
-		'lang' => '����(search)',
+		'lang' => 'ËÑË÷(search)',
 		'album.htm' => Array(
 				'album_top' => Array('return' => 'string'),
 				'album_bottom' => Array('return' => 'string')
@@ -489,7 +489,7 @@ $generalhook = Array(
 			)
 	),
 	'userapp' => Array(
-		'lang' => 'Ӧ��(userapp)',
+		'lang' => 'Ó¦ÓÃ(userapp)',
 		'userapp_app.htm' => Array(
 				'userapp_app_top' => Array('return' => 'string'),
 				'userapp_app_bottom' => Array('return' => 'string')
@@ -507,7 +507,7 @@ $generalhook = Array(
 );
 $mobilehook = array(
 	'common' => Array(
-		'lang' => '�ֻ�ȫ��(mobile/common)',
+		'lang' => 'ÊÖ»úÈ«¾Ö(mobile/common)',
 		'footer.htm' => Array(
 				'global_footer_mobile' => Array('return' => 'string')
 			),
@@ -516,7 +516,7 @@ $mobilehook = array(
 			)
 	),
 	'forum' => Array(
-		'lang' => '�ֻ���̳(mobile/forum)',
+		'lang' => 'ÊÖ»úÂÛÌ³(mobile/forum)',
 		'discuz.htm' => Array(
 				'index_top_mobile' => Array('return' => 'string'),
 				'index_middle_mobile' => Array('return' => 'string'),

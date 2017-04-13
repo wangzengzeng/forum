@@ -35,12 +35,12 @@ if(!submitcheck('pluginsubmit')) {
 			$module = $plugin['modules'][$type][$filename];
 			if($type == 'cron') {
 				$days = array(-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31);
-				$week = array('0'=>'星期日', '1'=>'星期一', '2'=>'星期二', '3'=>'星期三', '4'=>'星期四', '5'=>'星期五', '6'=>'星期六');
+				$week = array('0'=>'脨脟脝脷脠脮', '1'=>'脨脟脝脷脪禄', '2'=>'脨脟脝脷露镁', '3'=>'脨脟脝脷脠媒', '4'=>'脨脟脝脷脣脛', '5'=>'脨脟脝脷脦氓', '6'=>'脨脟脝脷脕霉');
 				$module['weekday'] = isset($module['weekday']) ? $module['weekday'] : '-1';
 				$module['day'] = isset($module['day']) ? $module['day'] : '-1';
 				$module['hour'] = isset($module['hour']) ? $module['hour'] : '-1';
 			} elseif($type == 'navigation') {
-				$allowgroup = array('0' => '普通用户', '1' => '管理员', '2' => '超级版主', '3' => '版主');
+				$allowgroup = array('0' => '脝脮脥篓脫脙禄搂', '1' => '鹿脺脌铆脭卤', '2' => '鲁卢录露掳忙脰梅', '3' => '掳忙脰梅');
 			}
 		}
 	} elseif($type == 'system' && in_array($filename, array('install', 'uninstall', 'upgrade'))) {
@@ -81,7 +81,7 @@ if(!submitcheck('pluginsubmit')) {
 		$page = dhtmlspecialchars(preg_replace("/[^\[A-Za-z0-9_\.\]]/", '', $_GET['page']));
 		$hooklist = $type == 'mobile' ? $mobilehook : $generalhook;
 		if(in_array($type, $basetype)) {
-			//初始化钩子
+			//鲁玫脢录禄炉鹿鲁脳脫
 			$plugin['modules'][$type]['hooks'] = array();
 			foreach($_GET['hooks'] as $skey => $value) {
 				$sorts = $hooklist[$skey];
@@ -93,7 +93,7 @@ if(!submitcheck('pluginsubmit')) {
 								if(stripos($hook, '_output') && substr($hook, stripos($hook, '_output')) == '_output') {
 									$key = substr($key, 0, stripos($hook, '_output'));
 								}
-								//判断是否有选择主方法，如果没有抛弃output的钩子
+								//脜脨露脧脢脟路帽脫脨脩隆脭帽脰梅路陆路篓拢卢脠莽鹿没脙禄脫脨脜脳脝煤output碌脛鹿鲁脳脫
 								if(isset($sorts[$fkey][$key]) && isset($_GET['hooks'][$skey][$fkey][$key])) {
 									$plugin['modules'][$type]['hooks'][$skey][$fkey][$hook] = $hook;
 								}
@@ -102,7 +102,7 @@ if(!submitcheck('pluginsubmit')) {
 					}
 				}
 			}
-			//添加钩子
+			//脤铆录脫鹿鲁脳脫
 			if(isset($hooklist[$sort])) {
 				$sorts = $hooklist[$sort];
 				if($sorts && $sorts[$page]) {
@@ -111,20 +111,20 @@ if(!submitcheck('pluginsubmit')) {
 						if(stripos($hook, '_output') && substr($hook, stripos($hook, '_output')) == '_output') {
 							$key = substr($key, 0, stripos($hook, '_output'));
 						}
-						//判断是否有选择主方法，如果没有抛弃output的钩子
+						//脜脨露脧脢脟路帽脫脨脩隆脭帽脰梅路陆路篓拢卢脠莽鹿没脙禄脫脨脜脳脝煤output碌脛鹿鲁脳脫
 						if(isset($sorts[$page][$key]) && isset($_GET['newhook'][$key])) {
 							$plugin['modules'][$type]['hooks'][$sort][$page][$hook] = $hook;
 						}
 					}
 				}
 			}
-			//写入插件信息
+			//脨麓脠毛虏氓录镁脨脜脧垄
 			C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
 			
 		}
-		devmessage('嵌入点添加成功，继续下一步。', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid&filename=$filename&type=$type", 'succeed');
+		devmessage('脟露脠毛碌茫脤铆录脫鲁脡鹿娄拢卢录脤脨酶脧脗脪禄虏陆隆拢', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid&filename=$filename&type=$type", 'succeed');
 	} elseif(submitcheck('editcron')) {
-		//过滤分钟数据
+		//鹿媒脗脣路脰脰脫脢媒戮脻
 		$minutes = explode(',', $_GET['newminute']);
 		foreach($minutes as $minute) {
 			$minute = intval($minute);
@@ -138,14 +138,14 @@ if(!submitcheck('pluginsubmit')) {
 		$plugin['modules'][$type][$filename]['hour'] = $_GET['newhour'] < -1 || 23 < $_GET['newhour'] ? -1 : intval($_GET['newhour']);
 		$plugin['modules'][$type][$filename]['minute'] = $newminute ? implode(',', $newminute) : '';
 		$plugin['modules'][$type][$filename]['description'] = $_GET['description'];
-		//写入插件信息
+		//脨麓脠毛虏氓录镁脨脜脧垄
 		C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
-		devmessage('计划任务设置完成', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
+		devmessage('录脝禄庐脠脦脦帽脡猫脰脙脥锚鲁脡', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
 	} elseif(submitcheck('editadv')) {
 		$plugin['modules'][$type][$filename]['description'] = $_GET['description'];
-		//写入插件信息
+		//脨麓脠毛虏氓录镁脨脜脧垄
 		C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
-		devmessage('脚本编辑完成', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
+		devmessage('陆脜卤戮卤脿录颅脥锚鲁脡', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
 	} elseif(submitcheck('editnav')) {
 		
 		if(!ispluginkey($_GET['name'])) {
@@ -167,13 +167,13 @@ if(!submitcheck('pluginsubmit')) {
 				'navsuburl' => $_GET['navsuburl'],
 				'description' => trim($_GET['menu'])
 			);
-		//写入插件信息
+		//脨麓脠毛虏氓录镁脨脜脧垄
 		C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
-		devmessage('脚本编辑完成', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
+		devmessage('陆脜卤戮卤脿录颅脥锚鲁脡', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
 	} elseif(submitcheck('editsystem')) {
 		if(in_array($filename, array('install', 'uninstall', 'upgrade'))) {
 			$plugin['modules']['extra'][$filename] = $_GET[$filename];
-			//添加表时同时增加删除表SQL
+			//脤铆录脫卤铆脢卤脥卢脢卤脭枚录脫脡戮鲁媒卤铆SQL
 			if($filename == 'install' && empty($plugin['modules']['extra']['uninstall'])) {
 				preg_match_all("/CREATE\s+TABLE.+?pre\_(.+?)\s*\((.+?)\)\s*(ENGINE|TYPE)\s*\=/is", $_GET[$filename], $matches);
 				if($matches[1]) {
@@ -184,14 +184,14 @@ if(!submitcheck('pluginsubmit')) {
 					$plugin['modules']['extra']['uninstall'] = $uninstall;
 				}
 			}
-			//写入插件信息
+			//脨麓脠毛虏氓录镁脨脜脧垄
 			C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
 		}
-		devmessage('脚本编辑完成', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
+		devmessage('陆脜卤戮卤脿录颅脥锚鲁脡', "develop.php?mod=plugins&action=$action&operation=$operation&pluginid=$pluginid", 'succeed');
 	} else {
 		
 		$modules = array();
-		//整理新的脚本名称
+		//脮没脌铆脨脗碌脛陆脜卤戮脙没鲁脝
 		foreach($_POST['script'] as $key => $scripts) {
 			if($key === 'extra' || $key === 'system') {
 				continue;
@@ -229,7 +229,7 @@ if(!submitcheck('pluginsubmit')) {
 							devmessage($devlang['plugins_script_'.$key].$devlang['plugins_script_repeat'], '', 'error');
 						}
 						$init = isset($plugin['modules'][$key][$scriptname]) ? false : true;
-						//更名
+						//赂眉脙没
 						if($scrkey != $scriptname && !is_numeric($scrkey)) {
 							$plugin['modules'][$key][$scriptname] = $plugin['modules'][$key][$scrkey];
 							unset($plugin['modules'][$key][$scrkey]);
@@ -254,10 +254,10 @@ if(!submitcheck('pluginsubmit')) {
 		}
 		C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
 		if($action == 'edit') {
-			devmessage('脚本添加成功', "develop.php?mod=plugins&action=$action&operation=script&pluginid=$pluginid", 'succeed');
+			devmessage('陆脜卤戮脤铆录脫鲁脡鹿娄', "develop.php?mod=plugins&action=$action&operation=script&pluginid=$pluginid", 'succeed');
 		} else {
 			dheader("location:develop.php?mod=plugins&action=$action&operation=setting&pluginid=$pluginid");
-			//devmessage('脚本添加成功', "develop.php?mod=plugins&action=$action&operation=setting&pluginid=$pluginid", 'succeed');
+			//devmessage('陆脜卤戮脤铆录脫鲁脡鹿娄', "develop.php?mod=plugins&action=$action&operation=setting&pluginid=$pluginid", 'succeed');
 		}
 	}
 }

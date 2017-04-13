@@ -25,7 +25,7 @@ if(in_array($action, array('create', 'edit'))) {
 		exit($result);
 	}
 	$cur_operation[$operation] = 'class="a"';
-	//��ȡָ���Ĳ����¼
+	//»ñÈ¡Ö¸¶¨µÄ²å¼þ¼ÇÂ¼
 	$plugin = array();
 	$pluginid = intval($_GET['pluginid']);
 	if($pluginid) {
@@ -34,15 +34,15 @@ if(in_array($action, array('create', 'edit'))) {
 			$plugin['modules'] = unserialize($plugin['modules']);
 		} else {
 			$pluginid = 0;
-			//�Ҳ�������ض��򵽴������
+			//ÕÒ²»µ½²å¼þÖØ¶¨Ïòµ½´´½¨²å¼þ
 			$operation = 'regplugin';
 			$action = 'create';
 		}
 	}
 	if($operation != 'regplugin' && empty($plugin)) {
-		devmessage('û���ҵ���ز��', '', 'error');
+		devmessage('Ã»ÓÐÕÒµ½Ïà¹Ø²å¼þ', '', 'error');
 	}
-	//���ظ������Ӧ�Ľű�
+	//¼ÓÔØ¸÷²½Öè¶ÔÓ¦µÄ½Å±¾
 	require_once DISCUZ_ROOT.'develop/include/'.$operation.'.php';
 	
 	include template('header', 0, 'develop/template/common');
@@ -56,7 +56,7 @@ if(in_array($action, array('create', 'edit'))) {
 		$page = dhtmlspecialchars(preg_replace("/[^\[A-Za-z0-9_\.\]]/", '', $_GET['page']));
 		require_once DISCUZ_ROOT.'develop/include/hooklist.php';
 		$hooklist = $_GET['type'] == 'mobile' ? $mobilehook : $generalhook;
-		//ҳ���б�
+		//Ò³ÃæÁÐ±í
 		$hooks = $pagelist = array();
 		if(isset($hooklist[$sort]) && !empty($hooklist[$sort])) {
 			foreach($hooklist[$sort] as $key => $value) {

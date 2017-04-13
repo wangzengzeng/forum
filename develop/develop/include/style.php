@@ -14,10 +14,10 @@ if(!submitcheck('pluginsubmit')) {
 	$extrastyle = $plugin['modules']['extra']['extrastyle'];
 } else {
 	$plugin['modules']['extra']['extrastyle'] = $_GET['extrastylenew'];
-	//写入插件信息
+	//脨麓脠毛虏氓录镁脨脜脧垄
 	C::t('common_plugin')->update($pluginid, array('modules' => serialize($plugin['modules'])));
 	if($action == 'edit') {
-		devmessage('样式管理添加成功', "develop.php?mod=plugins&action=edit&operation=$operation&pluginid=$pluginid", 'succeed');
+		devmessage('脩霉脢陆鹿脺脌铆脤铆录脫鲁脡鹿娄', "develop.php?mod=plugins&action=edit&operation=$operation&pluginid=$pluginid", 'succeed');
 	} else {
 		dheader("location:develop.php?mod=plugins&action=edit&operation=export&pluginid=$pluginid");
 	}

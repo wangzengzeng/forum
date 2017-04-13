@@ -25,7 +25,7 @@ if(!submitcheck('pluginsubmit')) {
 	if(empty($installlang[$plugin['identifier']])) {
 		$installlang[$plugin['identifier']] = array('' => '');
 	}
-	$tpllang = '{lang Ψһ��ʶ��:���԰���������}';
+	$tpllang = '{lang Î¨Ò»±êÊ¶·û:ÓïÑÔ°ü±äÁ¿Ãû³Æ}';
 } else {
 	foreach($_GET['scriptlangnew_key'] as $key => $val) {
 		if($_GET['scriptlangnew_val'][$key]) {
@@ -56,10 +56,10 @@ if(!submitcheck('pluginsubmit')) {
 		exit('Can not write to cache files, please check directory ./data/ and ./data/sysdata/ .');
 	}
 	if($action == 'edit') {
-		devmessage('�ύ�ɹ�', "develop.php?mod=plugin&action=$action&operation=language&pluginid=$pluginid", 'succeed');
+		devmessage('Ìá½»³É¹¦', "develop.php?mod=plugin&action=$action&operation=language&pluginid=$pluginid", 'succeed');
 	} else {
 		dheader("location:develop.php?mod=plugins&action=$action&operation=style&pluginid=$pluginid");
-		//devmessage('�ύ�ɹ�', "develop.php?mod=plugin&action=$action&operation=style&pluginid=$pluginid", 'succeed');
+		//devmessage('Ìá½»³É¹¦', "develop.php?mod=plugin&action=$action&operation=style&pluginid=$pluginid", 'succeed');
 	}
 }
 include template('header', 0, 'develop/template/common');

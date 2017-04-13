@@ -5,19 +5,19 @@
  *
  *      $Id: develop.php 30238 2012-05-17 07:30:20Z liulanbo $
  */
-// 定义应用 ID
+// 露篓脪氓脫娄脫脙 ID
 define('APPTYPEID', 128);
 define('CURSCRIPT', 'plugindevelop');
 require_once './source/class/class_core.php';
 
 $discuz = C::app();
 
-//核心类
+//潞脣脨脛脌脿
 $cachelist = array('plugin', 'diytemplatename');
 $discuz->cachelist = $cachelist;
 $discuz->init();
 
-//脚本引导
+//陆脜卤戮脪媒碌录
 if(!in_array($_GET['mod'], array('plugin'))) {
 	$_GET['mod'] = 'plugin';
 }
@@ -44,21 +44,21 @@ function devmessage($message, $url = '', $type = '', $values = array(), $extra =
 	if($type == 'form') {
 		$message = "<form method=\"post\" action=\"$url\"><input type=\"hidden\" name=\"formhash\" value=\"".FORMHASH."\">".
 			"<br />$message$extra".
-			"<p class=\"margintop\"><input type=\"submit\" class=\"btn\" name=\"$confirmedname\" value=\"确定\"".($extrajs ? ' '.$extrajs : '')."> &nbsp; \n".
+			"<p class=\"margintop\"><input type=\"submit\" class=\"btn\" name=\"$confirmedname\" value=\"脠路露篓\"".($extrajs ? ' '.$extrajs : '')."> &nbsp; \n".
 			"<script type=\"text/javascript\">".
-			"if(history.length > (BROWSER.ie ? 0 : 1)) document.write('<input type=\"button\" class=\"btn\" value=\"取消\" onClick=\"history.go(-1);\">');".
+			"if(history.length > (BROWSER.ie ? 0 : 1)) document.write('<input type=\"button\" class=\"btn\" value=\"脠隆脧没\" onClick=\"history.go(-1);\">');".
 			"</script>".
 			"</p></form><br />";
 	} elseif($type == 'loadingform') {
 		$message = "<form method=\"post\" action=\"$url\" id=\"loadingform\"><input type=\"hidden\" name=\"formhash\" value=\"".FORMHASH."\"><br />$message$extra<img src=\"static/image/admincp/ajax_loader.gif\" class=\"marginbot\" /><br />".
-			'<p class="marginbot"><a href="###" onclick="$(\'loadingform\').submit();" class="lightlink">如果您的浏览器没有自动跳转，请点击这里</a></p></form><br /><script type="text/JavaScript">setTimeout("$(\'loadingform\').submit();", 2000);</script>';
+			'<p class="marginbot"><a href="###" onclick="$(\'loadingform\').submit();" class="lightlink">脠莽鹿没脛煤碌脛盲炉脌脌脝梅脙禄脫脨脳脭露炉脤酶脳陋拢卢脟毛碌茫禄梅脮芒脌茂</a></p></form><br /><script type="text/JavaScript">setTimeout("$(\'loadingform\').submit();", 2000);</script>';
 	} else {
 		$message .= $extra.($type == 'loading' ? '<img src="static/image/admincp/ajax_loader.gif" class="marginbot" />' : '');
 		if($url) {
 			if($type == 'button') {
 				$message = "<br />$message<br /><p class=\"margintop\"><input type=\"submit\" class=\"btn\" name=\"submit\" value=\"".cplang('start')."\" onclick=\"location.href='$url'\" />";
 			} else {
-				$message .= '<p class="marginbot"><a href="'.$url.'" class="lightlink">如果您的浏览器没有自动跳转，请点击这里</a></p>';
+				$message .= '<p class="marginbot"><a href="'.$url.'" class="lightlink">脠莽鹿没脛煤碌脛盲炉脌脌脝梅脙禄脫脨脳脭露炉脤酶脳陋拢卢脟毛碌茫禄梅脮芒脌茂</a></p>';
 				//$url = transsid($url);
 				$timeout = $type != 'loading' ? 3000 : 0;
 				$message .= "<script type=\"text/JavaScript\">setTimeout(\"redirect('$url');\", $timeout);</script>";
@@ -66,7 +66,7 @@ function devmessage($message, $url = '', $type = '', $values = array(), $extra =
 		} elseif($type != 'succeed' && $type != 'window') {
 			$message .= '<p class="marginbot">'.
 			"<script type=\"text/javascript\">".
-			"if(history.length > (BROWSER.ie ? 0 : 1)) document.write('<a href=\"javascript:history.go(-1);\" class=\"lightlink\">返回</a>');".
+			"if(history.length > (BROWSER.ie ? 0 : 1)) document.write('<a href=\"javascript:history.go(-1);\" class=\"lightlink\">路碌禄脴</a>');".
 			"</script>".
 			'</p>';
 		}

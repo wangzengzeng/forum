@@ -47,14 +47,14 @@ $phptpl['specialclass'] = <<<EOF
 
 class threadplugin_$plugin[identifier] {
 
-	public \$name = 'XX主题';			//主题类型名称
-	public \$iconfile = 'icon.gif';	//发布主题链接中的前缀图标
-	public \$buttontext = '发布xx主题';	//发帖时按钮文字
+	public \$name = 'XX脰梅脤芒';			//脰梅脤芒脌脿脨脥脙没鲁脝
+	public \$iconfile = 'icon.gif';	//路垄虏录脰梅脤芒脕麓陆脫脰脨碌脛脟掳脳潞脥录卤锚
+	public \$buttontext = '路垄虏录xx脰梅脤芒';	//路垄脤没脢卤掳麓脜楼脦脛脳脰
 
 	/**
-	 * 发主题时页面新增的表单项目
-	 * @param Integer \$fid: 版块ID
-	 * @return string 通过 return 返回即可输出到发帖页面中 
+	 * 路垄脰梅脤芒脢卤脪鲁脙忙脨脗脭枚碌脛卤铆碌楼脧卯脛驴
+	 * @param Integer \$fid: 掳忙驴茅ID
+	 * @return string 脥篓鹿媒 return 路碌禄脴录麓驴脡脢盲鲁枚碌陆路垄脤没脪鲁脙忙脰脨 
 	 */
 	public function newthread(\$fid) {
 		//TODO - Insert your code here
@@ -63,8 +63,8 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * 主题发布前的数据判断 
-	 * @param Integer \$fid: 版块ID
+	 * 脰梅脤芒路垄虏录脟掳碌脛脢媒戮脻脜脨露脧 
+	 * @param Integer \$fid: 掳忙驴茅ID
 	 */
 	public function newthread_submit(\$fid) {
 		//TODO - Insert your code here
@@ -72,9 +72,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * 主题发布后的数据处理 
-	 * @param Integer \$fid: 版块ID
-	 * @param Integer \$tid: 当前帖子ID
+	 * 脰梅脤芒路垄虏录潞贸碌脛脢媒戮脻麓娄脌铆 
+	 * @param Integer \$fid: 掳忙驴茅ID
+	 * @param Integer \$tid: 碌卤脟掳脤没脳脫ID
 	 */
 	public function newthread_submit_end(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -82,10 +82,10 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * 编辑主题时页面新增的表单项目
-	 * @param Integer \$fid: 版块ID
-	 * @param Integer \$tid: 当前帖子ID
-	 * @return string 通过 return 返回即可输出到编辑主题页面中 
+	 * 卤脿录颅脰梅脤芒脢卤脪鲁脙忙脨脗脭枚碌脛卤铆碌楼脧卯脛驴
+	 * @param Integer \$fid: 掳忙驴茅ID
+	 * @param Integer \$tid: 碌卤脟掳脤没脳脫ID
+	 * @return string 脥篓鹿媒 return 路碌禄脴录麓驴脡脢盲鲁枚碌陆卤脿录颅脰梅脤芒脪鲁脙忙脰脨 
 	 */
 	public function editpost(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -94,9 +94,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * 主题编辑前的数据判断 
-	 * @param Integer \$fid: 版块ID
-	 * @param Integer \$tid: 当前帖子ID
+	 * 脰梅脤芒卤脿录颅脟掳碌脛脢媒戮脻脜脨露脧 
+	 * @param Integer \$fid: 掳忙驴茅ID
+	 * @param Integer \$tid: 碌卤脟掳脤没脳脫ID
 	 */
 	public function editpost_submit(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -104,9 +104,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * 主题编辑后的数据处理 
-	 * @param Integer \$fid: 版块ID
-	 * @param Integer \$tid: 当前帖子ID
+	 * 脰梅脤芒卤脿录颅潞贸碌脛脢媒戮脻麓娄脌铆 
+	 * @param Integer \$fid: 掳忙驴茅ID
+	 * @param Integer \$tid: 碌卤脟掳脤没脳脫ID
 	 */
 	public function editpost_submit_end(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -114,9 +114,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * 回帖后的数据处理 
-	 * @param Integer \$fid: 版块ID
-	 * @param Integer \$tid: 当前帖子ID
+	 * 禄脴脤没潞贸碌脛脢媒戮脻麓娄脌铆 
+	 * @param Integer \$fid: 掳忙驴茅ID
+	 * @param Integer \$tid: 碌卤脟掳脤没脳脫ID
 	 */
 	public function newreply_submit_end(\$fid, \$tid) {
 		//TODO - Insert your code here
@@ -124,9 +124,9 @@ class threadplugin_$plugin[identifier] {
 	}
 
 	/**
-	 * 查看主题时页面新增的内容
-	 * @param Integer \$tid: 当前帖子ID
-	 * @return string 通过 return 返回即可输出到主题首贴页面中
+	 * 虏茅驴麓脰梅脤芒脢卤脪鲁脙忙脨脗脭枚碌脛脛脷脠脻
+	 * @param Integer \$tid: 碌卤脟掳脤没脳脫ID
+	 * @return string 脥篓鹿媒 return 路碌禄脴录麓驴脡脢盲鲁枚碌陆脰梅脤芒脢脳脤霉脪鲁脙忙脰脨
 	 */
 	public function viewthread(\$tid) {
 		//TODO - Insert your code here
@@ -152,40 +152,40 @@ EOF;
 
 $phptpl['magic'] = <<<EOF
 class magic_{name} {
-	public \$version = '$plugin[version]';	//脚本版本号
-	public \$name = '{name}';				//道具名称 (可填写语言包项目)
-	public \$description = '{desc}';		//道具说明 (可填写语言包项目)
-	public \$price = '20';	//道具默认价格
-	public \$weight = '20';	//道具默认重量
+	public \$version = '$plugin[version]';	//陆脜卤戮掳忙卤戮潞脜
+	public \$name = '{name}';				//碌脌戮脽脙没鲁脝 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$description = '{desc}';		//碌脌戮脽脣碌脙梅 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$price = '20';	//碌脌戮脽脛卢脠脧录脹赂帽
+	public \$weight = '20';	//碌脌戮脽脛卢脠脧脰脴脕驴
 	public \$useevent = 0;
 	public \$targetgroupperm = false;
-	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//版权 (可填写语言包项目)
+	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//掳忙脠篓 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
 	public \$magic = array();
 	public \$parameters = array();
 
 	/**
-	 * 返回设置项目
+	 * 路碌禄脴脡猫脰脙脧卯脛驴
 	 */
 	public function getsetting(&\$magic) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 保存设置项目
+	 * 卤拢麓忙脡猫脰脙脧卯脛驴
 	 */
 	public function setsetting(&\$magicnew, &\$parameters) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 道具使用
+	 * 碌脌戮脽脢鹿脫脙
 	 */
 	public function usesubmit() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 道具显示
+	 * 碌脌戮脽脧脭脢戮
 	 */
 	public function show() {
 		//TODO - Insert your code here
@@ -219,29 +219,29 @@ EOF;
 $phptpl['adv'] = <<<EOF
 class adv_{name} {
 
-	public \$version = '$plugin[version]';	//脚本版本号
-	public \$name = '{name}';				//广告类型名称 (可填写语言包项目)
-	public \$description = '{desc}';		//广告类型说明 (可填写语言包项目)
-	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//版权 (可填写语言包项目)
-	public \$targets = array('portal', 'home', 'member', 'forum', 'group', 'userapp', 'plugin', 'custom');	//广告类型适用的投放范围
-	public \$imagesizes = array();	//广告规格例：array('468x60', '658x60', '728x90', '760x90', '950x90')
+	public \$version = '$plugin[version]';	//陆脜卤戮掳忙卤戮潞脜
+	public \$name = '{name}';				//鹿茫赂忙脌脿脨脥脙没鲁脝 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$description = '{desc}';		//鹿茫赂忙脌脿脨脥脣碌脙梅 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//掳忙脠篓 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$targets = array('portal', 'home', 'member', 'forum', 'group', 'userapp', 'plugin', 'custom');	//鹿茫赂忙脌脿脨脥脢脢脫脙碌脛脥露路脜路露脦搂
+	public \$imagesizes = array();	//鹿茫赂忙鹿忙赂帽脌媒拢潞array('468x60', '658x60', '728x90', '760x90', '950x90')
 
 	/**
-	 * 返回设置项目
+	 * 路碌禄脴脡猫脰脙脧卯脛驴
 	 */
 	public function getsetting() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 保存设置项目
+	 * 卤拢麓忙脡猫脰脙脧卯脛驴
 	 */
 	public function setsetting(&\$advnew, &\$parameters) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 广告显示时的运行代码
+	 * 鹿茫赂忙脧脭脢戮脢卤碌脛脭脣脨脨麓煤脗毛
 	 */
 	public function evalcode() {
 		//TODO - Insert your code here
@@ -252,59 +252,59 @@ EOF;
 $phptpl['task'] = <<<EOF
 class task_{name} {
 
-	public \$version = '$plugin[version]';	//脚本版本号
-	public \$name = '{name}';	//任务名称 (可填写语言包项目)
-	public \$description = '{desc}';	//任务说明 (可填写语言包项目)
-	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//版权 (可填写语言包项目)
-	public \$icon = '';		//默认图标
-	public \$period = '';	//默认任务间隔周期
-	public \$periodtype = 0;//默认任务间隔周期单位
-	public \$conditions = array();	//任务附加条件
+	public \$version = '$plugin[version]';	//陆脜卤戮掳忙卤戮潞脜
+	public \$name = '{name}';	//脠脦脦帽脙没鲁脝 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$description = '{desc}';	//脠脦脦帽脣碌脙梅 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//掳忙脠篓 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$icon = '';		//脛卢脠脧脥录卤锚
+	public \$period = '';	//脛卢脠脧脠脦脦帽录盲赂么脰脺脝脷
+	public \$periodtype = 0;//脛卢脠脧脠脦脦帽录盲赂么脰脺脝脷碌楼脦禄
+	public \$conditions = array();	//脠脦脦帽赂陆录脫脤玫录镁
 
 	/**
-	 * 申请任务成功后的附加处理
+	 * 脡锚脟毛脠脦脦帽鲁脡鹿娄潞贸碌脛赂陆录脫麓娄脌铆
 	 */
 	public function  preprocess(\$task) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 判断任务是否完成 (返回 TRUE:成功 FALSE:失败 0:任务进行中进度未知或尚未开始  大于0的正数:任务进行中返回任务进度)
+	 * 脜脨露脧脠脦脦帽脢脟路帽脥锚鲁脡 (路碌禄脴 TRUE:鲁脡鹿娄 FALSE:脢搂掳脺 0:脠脦脦帽陆酶脨脨脰脨陆酶露脠脦麓脰陋禄貌脡脨脦麓驴陋脢录  麓贸脫脷0碌脛脮媒脢媒:脠脦脦帽陆酶脨脨脰脨路碌禄脴脠脦脦帽陆酶露脠)
 	 */
 	public function csc(\$task = array()) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 完成任务后的附加处理
+	 * 脥锚鲁脡脠脦脦帽潞贸碌脛赂陆录脫麓娄脌铆
 	 */
 	public function sufprocess(\$task) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 任务显示
+	 * 脠脦脦帽脧脭脢戮
 	 */
 	public function view() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 任务安装的附加处理
+	 * 脠脦脦帽掳虏脳掳碌脛赂陆录脫麓娄脌铆
 	 */
 	public function install() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 任务卸载的附加处理
+	 * 脠脦脦帽脨露脭脴碌脛赂陆录脫麓娄脌铆
 	 */
 	public function uninstall() {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 任务升级的附加处理
+	 * 脠脦脦帽脡媒录露碌脛赂陆录脫麓娄脌铆
 	 */
 	public function upgrade() {
 		//TODO - Insert your code here
@@ -314,14 +314,14 @@ EOF;
 $phptpl['secqaa'] = <<<EOF
 class secqaa_{name} {
 
-	public \$version = '$plugin[version]';	//脚本版本号
-	public \$name = '{name}';	//验证问答名称 (可填写语言包项目)
-	public \$description = '{desc}';	//验证问答说明 (可填写语言包项目)
-	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//版权 (可填写语言包项目)
+	public \$version = '$plugin[version]';	//陆脜卤戮掳忙卤戮潞脜
+	public \$name = '{name}';	//脩茅脰陇脦脢麓冒脙没鲁脝 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$description = '{desc}';	//脩茅脰陇脦脢麓冒脣碌脙梅 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
+	public \$copyright = '<a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>';	//掳忙脠篓 (驴脡脤卯脨麓脫茂脩脭掳眉脧卯脛驴)
 	public \$customname = '';
 
 	/**
-	 * 返回安全问答的答案和问题 (\$question 为问题，函数返回值为答案)
+	 * 路碌禄脴掳虏脠芦脦脢麓冒碌脛麓冒掳赂潞脥脦脢脤芒 (\$question 脦陋脦脢脤芒拢卢潞炉脢媒路碌禄脴脰碌脦陋麓冒掳赂)
 	 */
 	public function make(&\$question) {
 		//TODO - Insert your code here
@@ -338,14 +338,14 @@ class seccode_{name} {
 	public \$customname = '';
 
 	/**
-	 * 检查输入的验证码，返回 true 表示通过
+	 * 录矛虏茅脢盲脠毛碌脛脩茅脰陇脗毛拢卢路碌禄脴 true 卤铆脢戮脥篓鹿媒
 	 */
 	public function check(\$value, \$idhash) {
 		//TODO - Insert your code here
 	}
 
 	/**
-	 * 输出验证码，echo 输出内容将显示在页面中
+	 * 脢盲鲁枚脩茅脰陇脗毛拢卢echo 脢盲鲁枚脛脷脠脻陆芦脧脭脢戮脭脷脪鲁脙忙脰脨
 	 */
 	public function make() {
 		//TODO - Insert your code here

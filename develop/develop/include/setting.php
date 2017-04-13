@@ -15,11 +15,11 @@ $editvar = false;
 
 $variables = array();
 $pluginvarid = intval($_GET['pluginvarid']);
-//È¡³öËùÓÐÌí¼ÓµÄ±äÁ¿Öµ
+//ÃˆÂ¡Â³Ã¶Ã‹Ã¹Ã“ÃÃŒÃ­Â¼Ã“ÂµÃ„Â±Ã¤ÃÂ¿Ã–Âµ
 if($pluginvarid && $plugin['pluginid']) {
 	$pluginvar = C::t('common_plugin')->fetch_by_pluginvarid($plugin['pluginid'], $pluginvarid);
 	if(!$pluginvar) {
-		devmessage('²å¼þ±äÁ¿Î´ÕÒµ½');
+		devmessage('Â²Ã¥Â¼Ã¾Â±Ã¤ÃÂ¿ÃŽÂ´Ã•Ã’ÂµÂ½');
 	}
 	$editvar = true;
 } else if($plugin['pluginid']) {
@@ -35,7 +35,7 @@ if(!submitcheck('pluginsubmit')) {
 } else {
 	
 	
-	//±à¼­±äÁ¿ÉèÖÃ
+	//Â±Ã Â¼Â­Â±Ã¤ÃÂ¿Ã‰Ã¨Ã–Ãƒ
 	if($editvar) {
 		$titlenew	= cutstr(trim($_GET['titlenew']), 25);
 		$descriptionnew	= cutstr(trim($_GET['descriptionnew']), 255);
@@ -43,7 +43,7 @@ if(!submitcheck('pluginsubmit')) {
 		$extranew	= trim($_GET['extranew']);
 		
 		if(!$titlenew) {
-			devmessage('ÄúÃ»ÓÐÊäÈëÅäÖÃÃû³Æ');
+			devmessage('Ã„ÃºÃƒÂ»Ã“ÃÃŠÃ¤ÃˆÃ«Ã…Ã¤Ã–ÃƒÃƒÃ»Â³Ã†');
 		} elseif($variablenew != $pluginvar['variable']) {
 			require_once libfile('function/admincp');
 			if(!$variablenew || strlen($variablenew) > 40 || !ispluginkey($variablenew) || C::t('common_pluginvar')->check_variable($plugin['pluginid'], $variablenew)) {

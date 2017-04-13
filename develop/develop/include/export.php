@@ -39,17 +39,17 @@ if(!submitcheck('pluginsubmit')) {
 }
 
 function createPluginPackage($plugin) {
-	//将文件写入data/develop目录下并打包成ZIP包
+	//陆芦脦脛录镁脨麓脠毛data/develop脛驴脗录脧脗虏垄麓貌掳眉鲁脡ZIP掳眉
 	$basedir = DISCUZ_ROOT.'data/develop/'.$plugin['identifier'];
 	if(!is_dir($basedir)) {
 		dmkdir($basedir);
 	}
-	//创建模板目录
+	//麓麓陆篓脛拢掳氓脛驴脗录
 	$tpldri = $basedir.'/template';
 	dmkdir($tpldri);
 	$scripttype = array('magic', 'cron', 'adv', 'task', 'secqaa', 'seccode', 'navigation');
 	$basetype = array('general', 'special', 'mobile');
-	//创建相应的文件
+	//麓麓陆篓脧脿脫娄碌脛脦脛录镁
 	$baseClass = $baseMethod = $expandMethod = $specialClass = array();
 	require_once DISCUZ_ROOT.'develop/include/hooklist.php';
 	require_once DISCUZ_ROOT.'develop/include/phptpl.php';
@@ -109,13 +109,13 @@ function createPluginPackage($plugin) {
 				}
 			}
 		} elseif($key == 'extra') {
-			//写入样式表信息
+			//脨麓脠毛脩霉脢陆卤铆脨脜脧垄
 			if($scripts['extrastyle']) {
 				$styleCode = "/** plugin::$plugin[identifier] **/\n".$scripts['extrastyle']."\n/** end **/\n";
 				$filePath = $tpldri.'/extend_module.css';
 				file_put_contents($filePath, $styleCode);
 			}
-			//写入安装脚本
+			//脨麓脠毛掳虏脳掳陆脜卤戮
 			if($scripts['install']) {
 				$filePath = $basedir.'/install.php';
 				$code = str_replace('{modulename}', 'install', $phptpl['emptyfile']);
@@ -137,13 +137,13 @@ function createPluginPackage($plugin) {
 		}
 	}
 
-	//写入嵌入点脚本
+	//脨麓脠毛脟露脠毛碌茫陆脜卤戮
 	foreach($baseClass as $name) {
 		$filePath = $basedir.'/'.$name.'.class.php';
 			
 		$code = str_replace('{modulename}', $name, $phptpl['baseclass']);
 		$code = str_replace('//==={code}===', implode('', $baseMethod[$name]), $code);
-		//添加扩展类
+		//脤铆录脫脌漏脮鹿脌脿
 		foreach($expandMethod[$name] as $extend => $methods) {
 			$extcode = str_replace('{modulename}', $name, $phptpl['extendclass']);
 			$extcode = str_replace('{curscript}', $extend, $extcode);
@@ -156,11 +156,11 @@ function createPluginPackage($plugin) {
 		$code = str_replace('//==={code}===', $code, $phptpl['emptyfile']);
 		file_put_contents($filePath, $code);
 	}
-	//生成XML文档
+	//脡煤鲁脡XML脦脛碌碌
 	$pluginarray = array();
 	$pluginarray['plugin'] = $plugin;
 	unset($pluginarray['plugin']['pluginid']);
-	//踢除扫描目录的文件
+	//脤脽鲁媒脡篓脙猫脛驴脗录碌脛脦脛录镁
 	foreach($pluginarray['plugin']['modules'] as $key => $scripts) {
 		if(in_array($key, $scripttype)) {
 			if($key == 'navigation') {
@@ -221,7 +221,7 @@ function createPluginPackage($plugin) {
 	$plugin_export = array2xml($root, 1);
 	$filePath = $basedir.'/'.$filename;
 	file_put_contents($filePath, array2xml($root, 1));
-	//打成zip包下载
+	//麓貌鲁脡zip掳眉脧脗脭脴
 	require_once DISCUZ_ROOT.'develop/include/pclzip.lib.php';
 	$zipFileName = DISCUZ_ROOT.'data/develop/'.$plugin['identifier'].'.zip';
 	$zip = new PclZip($zipFileName);

@@ -54,7 +54,7 @@ if(!submitcheck('pluginsubmit')) {
 			'copyright' => $copyrightnew,
 			'modules' => serialize($plugin['modules'])
 		));
-		devmessage('提交成功', 'develop.php?mod=plugin&action=edit&operation=regplugin&pluginid='.$pluginid, 'succeed');
+		devmessage('脤谩陆禄鲁脡鹿娄', 'develop.php?mod=plugin&action=edit&operation=regplugin&pluginid='.$pluginid, 'succeed');
 	} elseif($action == 'create') {
 		$data = array(
 			'name' => $namenew,
